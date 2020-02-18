@@ -10,10 +10,9 @@
 .SUFFIXES:
 
 # --- Tonc paths ---
-# If not defined as environment variable, assumed to be 2 dirs up
-export TONCCODE	?= $(CURDIR)/../..
-
-include $(TONCCODE)/tonc_rules
+export BASE_DIR = /d/work/gba/projects/gba-template
+export TONCLIB := $(BASE_DIR)/../../tools/devkitPro/libtonc
+include  $(BASE_DIR)/tonc_rules
 
 # --- Main path ---
 
@@ -35,13 +34,13 @@ export PROJ	?= $(notdir $(CURDIR))
 TITLE		:= $(PROJ)
 GFXLIBS		:= libgfx.a
 
-LIBS		:= -ltonc -lgfx
+LIBS		:= -ltonc #-lgfx
 
 BUILD		:= build
 SRCDIRS		:= source
 DATADIRS	:= data
 INCDIRS		:= include
-LIBDIRS		:= $(TONCCODE)/tonclib
+LIBDIRS		:= $(TONCLIB)
 
 # --- switches ---
 
@@ -153,7 +152,7 @@ export LIBPATHS	:=	-L$(CURDIR) $(foreach dir,$(LIBDIRS),-L$(dir)/lib)
 
 $(BUILD):
 	@[ -d $@ ] || mkdir -p $@
-	@make --no-print-directory -f $(CURDIR)/gfxmake
+	# @make --no-print-directory -f $(CURDIR)/gfxmake
 	@make --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile
 	arm-none-eabi-nm -Sn $(OUTPUT).elf > $(BUILD)/$(TARGET).map
 
