@@ -32,9 +32,8 @@ export PATH	:=	$(DEVKITARM)/bin:$(PATH)
 
 export PROJ	?= $(notdir $(CURDIR))
 TITLE		:= $(PROJ)
-GFXLIBS		:= libgfx.a
 
-LIBS		:= -ltonc #-lgfx
+LIBS		:= -ltonc
 
 BUILD		:= build
 SRCDIRS		:= source
@@ -152,7 +151,6 @@ export LIBPATHS	:=	-L$(CURDIR) $(foreach dir,$(LIBDIRS),-L$(dir)/lib)
 
 $(BUILD):
 	@[ -d $@ ] || mkdir -p $@
-	# @make --no-print-directory -f $(CURDIR)/gfxmake
 	@make --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile
 	arm-none-eabi-nm -Sn $(OUTPUT).elf > $(BUILD)/$(TARGET).map
 
@@ -160,7 +158,7 @@ all	: $(BUILD)
 
 clean:
 	@echo clean ...
-	@rm -fr $(BUILD) $(TARGET).elf $(TARGET).gba
+	@rm -rf $(BUILD) $(TARGET).elf $(TARGET).gba $(TARGET).sav
 
 
 else		# If we're here, we should be in the BUILD dir
