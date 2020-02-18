@@ -5,9 +5,9 @@
             "includePath": [
                 "${workspaceFolder}",
                 "${workspaceFolder}/include",
-                "D:\\work\\gba\\tools\\devkitPro\\devkitARM\\arm-none-eabi\\include",
-                "D:\\work\\gba\\tools\\devkitPro\\devkitARM\\lib\\gcc\\arm-none-eabi\\9.1.0\\include",
-                "D:\\work\\gba\\tools\\devkitPro\\libtonc\\include"
+                "DIR_DEVKITPRO\\devkitARM\\arm-none-eabi\\include",
+                "DIR_DEVKITPRO\\devkitARM\\lib\\gcc\\arm-none-eabi\\9.1.0\\include",
+                "DIR_DEVKITPRO\\libtonc\\include"
             ],
             "defines": [
                 "_DEBUG",
@@ -21,9 +21,9 @@
                 "path": [
                     "${workspaceFolder}",
                     "${workspaceFolder}/include",
-                    "D:\\work\\gba\\tools\\devkitPro\\devkitARM\\arm-none-eabi\\include",
-                    "D:\\work\\gba\\tools\\devkitPro\\devkitARM\\lib\\gcc\\arm-none-eabi\\9.1.0\\include",
-                    "D:\\work\\gba\\tools\\devkitPro\\libtonc\\include"
+                    "DIR_DEVKITPRO\\devkitARM\\arm-none-eabi\\include",
+                    "DIR_DEVKITPRO\\devkitARM\\lib\\gcc\\arm-none-eabi\\9.1.0\\include",
+                    "DIR_DEVKITPRO\\libtonc\\include"
                 ],
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": ""

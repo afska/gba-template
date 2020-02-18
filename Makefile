@@ -9,9 +9,11 @@
 # --- No implicit rules ---
 .SUFFIXES:
 
-# --- Tonc paths ---
-export BASE_DIR = /d/work/gba/projects/gba-template
-export TONCLIB := $(BASE_DIR)/../../tools/devkitPro/libtonc
+# --- Paths ---
+export BASE_DIR = DIR_PROJECT
+export DEVKIT_PRO = DIR_DEVKITPRO
+
+export TONCLIB := $(DEVKIT_PRO)/libtonc
 include  $(BASE_DIR)/tonc_rules
 
 # --- Main path ---
@@ -145,7 +147,8 @@ export LIBPATHS	:=	-L$(CURDIR) $(foreach dir,$(LIBDIRS),-L$(dir)/lib)
 
 # --- More targets ----------------------------------------------------
 
-.PHONY: $(BUILD) clean
+start:
+	start $(TARGET).gba
 
 # --- Create BUILD if necessary, and run this makefile from there ---
 

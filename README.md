@@ -9,14 +9,13 @@
 		* `projects`
 			* `gba-template`
 - Configure environment variables:
-	* `DEVKITARM`
-	* `DEVKITPRO`
 	* `PATH` (add `{DEVKITARM}/bin` and `{DEVKITPRO}/tools/bin`)
-- Update `Makefile`'s `BASE_DIR` var with the absolute path ¯\_(ツ)_/¯
+- Run script:
+	* `./configure.sh`
+- Never move any folder ¯\_(ツ)_/¯
 
-## Build
+## Actions
 
-```
-make
-start gba-template.gba
-```
+- `make clean`
+- `make build`
+- `make start`
