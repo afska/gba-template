@@ -147,6 +147,9 @@ export LIBPATHS	:=	-L$(CURDIR) $(foreach dir,$(LIBDIRS),-L$(dir)/lib)
 
 # --- More targets ----------------------------------------------------
 
+.PHONY: clean
+.PHONY: start
+
 start:
 	start $(TARGET).gba
 
