@@ -145,14 +145,6 @@ export INCLUDE	:=	$(foreach dir,$(INCDIRS),-I$(CURDIR)/$(dir))	\
  
 export LIBPATHS	:=	-L$(CURDIR) $(foreach dir,$(LIBDIRS),-L$(dir)/lib)
 
-# --- More targets ----------------------------------------------------
-
-.PHONY: clean
-.PHONY: start
-
-start:
-	start $(TARGET).gba
-
 # --- Create BUILD if necessary, and run this makefile from there ---
 
 $(BUILD):
@@ -181,5 +173,13 @@ $(OUTPUT).elf	:	$(OFILES)
 
 
 endif		# End BUILD switch
+
+# --- More targets ----------------------------------------------------
+
+.PHONY: clean
+.PHONY: start
+
+start:
+	start $(TARGET).gba
 
 # EOF

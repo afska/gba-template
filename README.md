@@ -10,9 +10,10 @@
 			* `gba-template`
 - Configure environment variables:
 	* `PATH` (add `{DEVKITARM}/bin` and `{DEVKITPRO}/tools/bin`)
+	* (it's better to `export PATH=$PATH:{NEW_PATHS}` in `~/.bash_profile`)
 - Run script:
 	* `./configure.sh`
-- Never move any folder ¯\_(ツ)_/¯
+- Use `msys2` as shell when using `make`, and never move any folder ¯\_(ツ)_/¯
 
 ## Actions
 
