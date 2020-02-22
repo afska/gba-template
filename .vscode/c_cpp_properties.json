@@ -4,10 +4,10 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}",
-                "${workspaceFolder}/include",
-                "DIR_DEVKITPRO\\devkitARM\\arm-none-eabi\\include",
-                "DIR_DEVKITPRO\\devkitARM\\lib\\gcc\\arm-none-eabi\\9.1.0\\include",
-                "DIR_DEVKITPRO\\libtonc\\include"
+                "${workspaceFolder}/include/**",
+                "DIR_DEVKITPRO\\devkitARM\\arm-none-eabi\\include\\**",
+                "DIR_DEVKITPRO\\devkitARM\\lib\\gcc\\arm-none-eabi\\9.1.0\\include\\**",
+                "DIR_DEVKITPRO\\libtonc\\include\\**"
             ],
             "defines": [
                 "_DEBUG",
@@ -20,10 +20,10 @@
             "browse": {
                 "path": [
                     "${workspaceFolder}",
-                    "${workspaceFolder}/include",
-                    "DIR_DEVKITPRO\\devkitARM\\arm-none-eabi\\include",
-                    "DIR_DEVKITPRO\\devkitARM\\lib\\gcc\\arm-none-eabi\\9.1.0\\include",
-                    "DIR_DEVKITPRO\\libtonc\\include"
+                    "${workspaceFolder}/include/**",
+                    "DIR_DEVKITPRO\\devkitARM\\arm-none-eabi\\include\\**",
+                    "DIR_DEVKITPRO\\devkitARM\\lib\\gcc\\arm-none-eabi\\9.1.0\\include\\**",
+                    "DIR_DEVKITPRO\\libtonc\\include\\**"
                 ],
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": ""
