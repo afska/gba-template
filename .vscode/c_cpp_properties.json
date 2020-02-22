@@ -16,6 +16,8 @@
                 "ARM7",
                 "WIN32"
             ],
+            "compilerPath": 
+"DIR_DEVKITPRO\\devkitARM\\bin\\arm-none-eabi-g++.exe",
             "intelliSenseMode": "gcc-x64",
             "browse": {
                 "path": [
