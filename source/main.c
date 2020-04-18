@@ -32,6 +32,7 @@ int main() {
 
   // Set up a map, draw 10 tiles starting from tile 6
   for (int i = 6; i < 6 + 10; i++)
+    // update screenblock 24, tile i
     se_mem[24][i] = 1;
 
   while (1) {
