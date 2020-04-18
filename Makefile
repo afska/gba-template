@@ -180,6 +180,6 @@ endif		# End BUILD switch
 .PHONY: start
 
 start:
-	start $(TARGET).gba
+	start "$(TARGET).gba"
 
 # EOF

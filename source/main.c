@@ -1,35 +1,42 @@
 #include <stdio.h>
 #include <tonc.h>
 
-int main()
-{
-	// Init interrupts and VBlank irq.
-	irq_init(NULL);
-	irq_add(II_VBLANK, NULL);
+int main() {
+  // Init interrupts and VBlank irq
+  irq_init(NULL);
+  irq_add(II_VBLANK, NULL);
 
-	// Video mode 0, enable bg 0.
-	REG_DISPCNT = DCNT_MODE0 | DCNT_BG0;
+  // Video mode 0, enable bg 0
+  REG_DISPCNT = DCNT_MODE0 | DCNT_BG0;
 
-	// Init 4bpp vwf text on bg 0.
-	tte_init_chr4c(0,					   // BG 0
-				   BG_CBB(0) | BG_SBB(31), // Charblock 0; screenblock 31
-				   0xF000,				   // Screen-entry offset
-				   bytes2word(1, 2, 0, 0), // Color attributes.
-				   CLR_YELLOW,			   // Yellow text
-				   &verdana9Font,		   // Verdana 9 font
-				   NULL					   // Use default chr4 renderer
-	);
+  // Use charblock 0/4, screenblock 24/32, 8bpp color,
+  // and a basic 256x256px map (32x32 tiles)
+  REG_BG0CNT = BG_CBB(0) | BG_SBB(24) | BG_8BPP | BG_REG_32x32;
 
-	// Initialize use of stdio.
-	tte_init_con();
+  // Set up palette memory, colors are 15bpp
+  pal_bg_mem[0] = 0x77DF;  // base color (cream)
+  pal_bg_mem[1] = 0x4588;  // blue
+  pal_bg_mem[2] = 127;     // red
 
-	// Printf something at 96,72
-	tte_printf("#{P:96,72}Hello World!");
+  // Set up an 8x8 tile 1
+  for (int line = 0; line < 8; line++) {
+    // update charblock 0, tile 1, line i * 2
 
-	while (1)
-	{
-		VBlankIntrWait();
-	}
+    tile8_mem[0][1].data[line * 2] =
+        (1 << 0) + (2 << 8) + (1 << 16) + (2 << 24);
+    //    blue       red        blue        red
+    tile8_mem[0][1].data[line * 2 + 1] =
+        (1 << 0) + (1 << 8) + (2 << 16) + (2 << 24);
+    //    blue       blue        red        red
+  }
 
-	return 0;
+  // Set up a map, draw 10 tiles starting from tile 6
+  for (int i = 6; i < 6 + 10; i++)
+    se_mem[24][i] = 1;
+
+  while (1) {
+    VBlankIntrWait();
+  }
+
+  return 0;
 }
